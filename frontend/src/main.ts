@@ -2,10 +2,20 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
-import {greet} from "html_scraper"
+import {greet} from "r_html_to_json"
 
 
-greet();
+console.log(greet(`<!doctype html>
+            <html lang="en">
+                <head>
+                    <meta charset="utf-8">
+                    <title>Html parser</title>
+                </head>
+                <body>
+                    <h1 id="a" class="b c">Hello world</h1>
+                    </h1> <!-- comments & dangling elements are ignored -->
+                </body>
+            </html>`));
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "html_scraper": "file:../pkg"
+    "r_html_to_json": "file:../pkg"
   },
   "devDependencies": {
     "typescript": "^5.0.2",

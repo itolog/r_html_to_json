@@ -1,5 +1,5 @@
 [package]
-name = "html_scraper"
+name = "r_html_to_json"
 version = "0.1.0"
 authors = ["home"]
 edition = "2018"
@@ -8,7 +8,6 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["console_error_panic_hook"]
 
 [dependencies]
 wasm-bindgen = "0.2.88"
@@ -25,7 +24,7 @@ console_error_panic_hook = { version = "0.1.6", optional = true }
 #
 # Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
 wee_alloc = { version = "0.4.5", optional = true }
-cargo-watch = "8.4.1"
+html_parser = "0.7.0"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
@@ -36,7 +35,5 @@ opt-level = "s"
 
 [dependencies.web-sys]
 version = "0.3"
-features = [
-    "console",
-]
+features = []
 

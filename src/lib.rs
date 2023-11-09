@@ -1,6 +1,7 @@
+use html_parser::{Dom};
 use wasm_bindgen::prelude::*;
-extern crate web_sys;
 
+extern crate web_sys;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -9,12 +10,7 @@ extern crate web_sys;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet() {
-    log("Hello, html_scraper!");
+pub fn greet(html_string: &str) -> Result<String, JsError> {
+    let json = Dom::parse(html_string).expect("invalid data format").to_json_pretty()?;
+    Ok(json)
 }
