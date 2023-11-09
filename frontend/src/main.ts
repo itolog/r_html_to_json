@@ -2,10 +2,10 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
-import {greet} from "r_html_to_json"
+import {parse_html} from "r_html_to_json";
 
 
-console.log(greet(`<!doctype html>
+console.log(parse_html(`<!doctype html>
             <html lang="en">
                 <head>
                     <meta charset="utf-8">
