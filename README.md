@@ -5,7 +5,7 @@
 import { parse_html } from "r_html_to_json";
 
    
-let html = `<!doctype html>
+const html = `<!doctype html>
     <html lang="en">
         <head>
             <meta charset="utf-8">
