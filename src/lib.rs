@@ -11,6 +11,7 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
 pub fn parse_html(html_string: &str) -> Result<String, JsError> {
-    let json = Dom::parse(html_string).expect("invalid data format").to_json_pretty()?;
+    let json = Dom::parse(html_string)?.to_json_pretty()?;
+
     Ok(json)
 }
