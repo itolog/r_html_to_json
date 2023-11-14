@@ -1,7 +1,7 @@
 # A simple and versatile html/xhtml parser based on Rust.
 
 ## Usage
-```
+```javascript
 import { parse_html } from "r_html_to_json";
 
    
@@ -13,7 +13,7 @@ const html = `<!doctype html>
         </head>
         <body>
             <h1 id="a" class="b c">Hello world</h1>
-            </h1> <!-- comments & dangling elements are ignored -->
+            <!-- comments & dangling elements are ignored -->
         </body>
     </html>`;
 
@@ -23,7 +23,7 @@ parse_html(html);
 
 ## Output
 
-```
+```json
 {
   "treeType": "document",
   "children": [
