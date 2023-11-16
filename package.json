@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@types/html2json": "^1.0.4"
+  }
+}
