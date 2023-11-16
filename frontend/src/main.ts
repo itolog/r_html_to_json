@@ -11,14 +11,14 @@ const startTime = performance.now();
 const r1 = await parse_html(htmlStr3);
 const endTime = performance.now();
 console.log(`Function took ${endTime - startTime} milliseconds to execute.`);
-console.log(r1)
+console.log(JSON.parse(r1))
 console.log('=====================');
 
 const startTime2 = performance.now();
 let result = await HTMLToJSON(htmlStr3, true);
 const endTime2 = performance.now();
 console.log(`Function took ${endTime2 - startTime2} milliseconds to execute.`);
-console.log(result)
+console.log(JSON.parse(result))
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
