@@ -94,13 +94,13 @@ export const htmlStr2 = `<!doctype html>
             <title>Html parser</title>
         </head>
         <body>
-            <h1 id="a" class="b c">Hello world</h1>
+            <h1  data-data="data" id="a" class="b c">Hello world</h1>
             <!-- comments & dangling elements are ignored -->
         </body>
     </html>`
 
 export const htmlStr3 =` <div class="container">
-      <ul>
+      <ul data-data="data" >
           <li>Hello <strong>World</strong></li>
       </ul>
     </div>`

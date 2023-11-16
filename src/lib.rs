@@ -10,7 +10,7 @@ extern crate web_sys;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub fn parse_html(html_string: &str) -> Result<String, JsError> {
+pub async fn parse_html(html_string: &str) -> Result<String, JsError> {
     let json = Dom::parse(html_string)?.to_json_pretty()?;
 
     Ok(json)

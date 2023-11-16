@@ -4,7 +4,7 @@
 ```javascript
 import { parse_html } from "r_html_to_json";
 
-   
+
 const html = `<!doctype html>
     <html lang="en">
         <head>
@@ -17,8 +17,9 @@ const html = `<!doctype html>
         </body>
     </html>`;
 
-parse_html(html);
-    
+const result = await parse_html(html);
+
+console.log(JSON.parse(result));
 ```
 
 ## Output
