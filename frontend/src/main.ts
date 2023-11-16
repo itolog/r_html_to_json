@@ -3,19 +3,20 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 import {parse_html} from "r_html_to_json";
+import { htmlStr3} from "./data/data.ts";
+import { HTMLToJSON } from 'html-to-json-parser';
 
+console.time("parse_html");
+const r1 = parse_html(htmlStr3);
+console.log(r1);
+console.timeEnd("parse_html");
+console.log('=====================');
 
-console.log(parse_html(`<!doctype html>
-            <html lang="en">
-                <head>
-                    <meta charset="utf-8">
-                    <title>Html parser</title>
-                </head>
-                <body>
-                    <h1 id="a" class="b c">Hello world</h1>
-                    </h1> <!-- comments & dangling elements are ignored -->
-                </body>
-            </html>`));
+console.time("HTMLToJSON");
+let result = await HTMLToJSON(htmlStr3, true);
+console.log(result);
+console.timeEnd("HTMLToJSON");
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

@@ -1,8 +1,11 @@
 [package]
 name = "r_html_to_json"
-version = "0.1.0"
-authors = ["home"]
+version = "0.1.5"
+authors = ["itolog"]
 edition = "2018"
+repository = "https://github.com/itolog/r_html_to_json"
+keywords = ["html_to_json", "html_to_json_wasm"]
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
