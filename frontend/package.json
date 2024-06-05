@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "html-to-json-parser": "^2.0.0",
+    "html-to-json-parser": "^2.0.1",
     "r_html_to_json": "file:../pkg"
   },
   "devDependencies": {
