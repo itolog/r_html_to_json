@@ -94,8 +94,7 @@ export const htmlStr2 = `<!doctype html>
             <title>Html parser</title>
         </head>
         <body>
-            <h1  data-data="data" id="a" class="b c">Hello world</h1>
-            <!-- comments & dangling elements are ignored -->
+            <h1 data-data="data" id="a" class="b c">Hello world</h1>
         </body>
     </html>`
 

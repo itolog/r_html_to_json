@@ -2,25 +2,28 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
-import {parse_html, json_to_html} from "r_html_to_json";
+import {html_to_json, json_to_html} from "r_html_to_json";
 import {htmlStr2} from "./data/data.ts";
 // @ts-ignore
 import { HTMLToJSON } from 'html-to-json-parser';
 
 const startTime = performance.now();
-const r1 = await parse_html(htmlStr2);
+const r1 = await html_to_json(htmlStr2);
 const endTime = performance.now();
 console.log(`RUST Function took ${endTime - startTime} milliseconds to execute.`);
-console.log(r1)
 
+console.log('=====================');
+const startTime3 = performance.now();
 try {
+    console.log(r1)
     const as= await json_to_html( r1)
     console.log('TO HTML',as)
 }catch (e) {
     console.log("EROROR",e)
 }
 
-console.log('=====================');
+const endTime3 = performance.now();
+console.log(`RUST Function took ${endTime3 - startTime3} milliseconds to execute.`);
 
 const startTime2 = performance.now();
 let result = await HTMLToJSON(htmlStr2, true);

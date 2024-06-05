@@ -1,8 +1,9 @@
-# A simple and versatile html/xhtml parser based on Rust.
+# Rust based html parser(WASM).
 
-## Usage
+## Usage 
+### html_to_json
 ```javascript
-import { parse_html } from "r_html_to_json";
+import { html_to_json } from "r_html_to_json";
 
 
 const html = `<!doctype html>
@@ -12,70 +13,134 @@ const html = `<!doctype html>
             <title>Html parser</title>
         </head>
         <body>
-            <h1 id="a" class="b c">Hello world</h1>
-            <!-- comments & dangling elements are ignored -->
+            <h1 data-data="data" id="a" class="b c">Hello world</h1>
         </body>
     </html>`;
 
-const result = await parse_html(html);
+const result = await html_to_json(html);
 
-console.log(JSON.parse(result));
+console.log(result);
 ```
 
 ## Output
 
 ```json
 {
-  "treeType": "document",
+  "tag": "html",
+  "attributes": {},
   "children": [
     {
-      "name": "html",
-      "variant": "normal",
-      "attributes": {
-        "lang": "en"
-      },
+      "tag": "head",
+      "attributes": {},
       "children": [
         {
-          "name": "head",
-          "variant": "normal",
+          "tag": "",
+          "attributes": {},
+          "children": [],
+          "text": "\n            "
+        },
+        {
+          "tag": "meta",
+          "attributes": {},
+          "children": []
+        },
+        {
+          "tag": "",
+          "attributes": {},
+          "children": [],
+          "text": "\n            "
+        },
+        {
+          "tag": "title",
+          "attributes": {},
           "children": [
             {
-              "name": "meta",
-              "variant": "void",
-              "attributes": {
-                "charset": "utf-8"
-              }
-            },
-            {
-              "name": "title",
-              "variant": "normal",
-              "children": [
-                "Html parser"
-              ]
+              "tag": "",
+              "attributes": {},
+              "children": [],
+              "text": "Html parser"
             }
           ]
         },
         {
-          "name": "body",
-          "variant": "normal",
+          "tag": "",
+          "attributes": {},
+          "children": [],
+          "text": "\n        "
+        }
+      ]
+    },
+    {
+      "tag": "",
+      "attributes": {},
+      "children": [],
+      "text": "\n        "
+    },
+    {
+      "tag": "body",
+      "attributes": {},
+      "children": [
+        {
+          "tag": "",
+          "attributes": {},
+          "children": [],
+          "text": "\n            "
+        },
+        {
+          "tag": "h1",
+          "attributes": {},
           "children": [
             {
-              "id": "a",
-              "name": "h1",
-              "variant": "normal",
-              "classes": [
-                "b",
-                "c"
-              ],
-              "children": [
-                "Hello world"
-              ]
-            },
-            "comments & dangling elements are ignored"
+              "tag": "",
+              "attributes": {},
+              "children": [],
+              "text": "Hello world"
+            }
           ]
+        },
+        {
+          "tag": "",
+          "attributes": {},
+          "children": [],
+          "text": "\n        \n    "
         }
       ]
     }
   ]
 }
+```
+
+### json_to_html
+```javascript
+import { json_to_html, html_to_json } from "r_html_to_json";
+
+const html = `<!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>Html parser</title>
+        </head>
+        <body>
+            <h1 data-data="data" id="a" class="b c">Hello world</h1>
+        </body>
+    </html>`;
+
+const result = await html_to_json(html);
+
+const resultHtml = await json_to_html(result);
+
+console.log(resultHtml);
+```
+
+## Output
+
+```html
+<html lang="en"><head>
+    <meta charset="utf-8"></meta>
+    <title>Html parser</title>
+</head>
+<body>
+<h1 data-data="data" class="b c" id="a">Hello world</h1>
+
+</body></html>
 ```

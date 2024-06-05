@@ -4,7 +4,6 @@ use wasm_bindgen::prelude::*;
 use scraper::{Html, Selector};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use wasm_bindgen::prelude::*;
 
 extern crate web_sys;
 
@@ -24,7 +23,7 @@ struct Node {
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub async fn parse_html(html: &str) -> Result<JsValue, JsValue>  {
+pub async fn html_to_json(html: &str) -> Result<JsValue, JsValue>  {
     utils::set_panic_hook();
     let document = Html::parse_document(html);
     let selector = Selector::parse("*").unwrap();
