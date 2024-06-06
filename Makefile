@@ -10,7 +10,7 @@ tw:
 	twiggy top -n 20 pkg/r_html_to_json_bg.wasm
 
 build:
-	wasm-pack build
+	wasm-pack build --release
 run:
 	cd ./frontend && npm run dev
 

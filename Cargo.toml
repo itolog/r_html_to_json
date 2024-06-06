@@ -1,6 +1,6 @@
 [package]
 name = "r_html_to_json"
-version = "0.2.0"
+version = "1.0.0"
 authors = ["itolog"]
 edition = "2018"
 repository = "https://github.com/itolog/r_html_to_json"
@@ -11,7 +11,7 @@ license = "MIT"
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["console_error_panic_hook"]
+default = []
 
 [dependencies]
 wasm-bindgen = { version = "0.2.88", features = ["serde-serialize"] }
@@ -22,13 +22,13 @@ wasm-bindgen = { version = "0.2.88", features = ["serde-serialize"] }
 #
 # Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
 wee_alloc = { version = "0.4.5", optional = true }
-scraper = "0.19.0"
+scraper = { version = "0.19.0" }
 serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde-wasm-bindgen = { version = "0.6.5" }
 getrandom = { version = "0.2", features = ["js"] }
-wasm-bindgen-futures = "0.4.38"
-serde-wasm-bindgen = "0.6.5"
-console_error_panic_hook = { version = "0.1.7", optional = true }
-
+wasm-bindgen-futures = { version = "0.4.38" }
+js-sys = "0.3.69"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
