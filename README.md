@@ -136,7 +136,7 @@ console.log(resultHtml);
 
 ```html
 <html lang="en"><head>
-    <meta charset="utf-8"></meta>
+    <meta charset="utf-8">
     <title>Html parser</title>
 </head>
 <body>
@@ -144,3 +144,7 @@ console.log(resultHtml);
 
 </body></html>
 ```
+
+### To use with vite, install the plugin
+[vite-plugin-wasm](https://www.npmjs.com/package/vite-plugin-wasm)
+ 
